@@ -1,10 +1,11 @@
 import java.util.Scanner;
 import java.util.Random;
+import java.util.Arrays;
+import java.util.ArrayList;
 class Conversation {
 
   public static void main(String[] arguments) {
-
-
+    String [] transcript = {"TRANSCRIPT: "};
     System.out.println("Let's talk!");
     Scanner input = new Scanner(System.in);
     System.out.println("How many rounds?");
@@ -21,8 +22,7 @@ class Conversation {
       String text = input.nextLine();
       boolean mirrored = false; 
       String newtext = text;
-      String [] responses = {"Oh, wow!", "Tell me more!", "Can you elaborate?", "I'm here to help you", "I'm here to listen", "What does that mean?"};
-      String [] transcript = {"TRANSCRIPT: "};
+      String [] responses = {"Oh, wow!", "Tell me more!", "Can you elaborate?", "I'm here to help!", "I'm here to listen", "What does that mean?", "Hmm...", "Mm-hmm", "That's interesting!"};
 
       if (text.contains("I ")) {
         newtext = newtext.replace("I ", "you "); 
@@ -44,17 +44,26 @@ class Conversation {
         newtext = newtext.replace("your ", "my ");
         mirrored = true;
       } 
+      Arrays.toString(transcript);
+      ArrayList<String>arrayList = new ArrayList<String>(Arrays.asList(transcript));
+      arrayList.add(text);
+      transcript = arrayList.toArray(transcript);
 
       if (mirrored == true) {
         System.out.println(newtext + "?");
+        arrayList.add(newtext);
+        transcript = arrayList.toArray(transcript);
       } else {
         Random rand = new Random();
         int max = responses.length;
         int random = rand.nextInt(max);
         System.out.println(responses[random]);
+        arrayList.add(responses[random]);
+        transcript = arrayList.toArray(transcript);
       }
-      
         }
+      System.out.println("Goodbye!");
+      System.out.println(transcript);
     }
 }
 
