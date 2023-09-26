@@ -2,6 +2,11 @@ import java.util.Scanner;
 import java.util.Random;
 import java.util.Arrays;
 
+/**
+ * Chatbot that takes in user input, provides either a mirrored response if it detects personal pronouns
+ * or returns a random canned response from a set array 
+ */
+
 class Conversation {
 
   public static void main(String[] arguments) {
