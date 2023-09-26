@@ -1,15 +1,16 @@
 import java.util.Scanner;
 import java.util.Random;
 import java.util.Arrays;
-import java.util.ArrayList;
+
 class Conversation {
 
   public static void main(String[] arguments) {
-    String [] transcript = {"TRANSCRIPT: "};
     System.out.println("Let's talk!");
     Scanner input = new Scanner(System.in);
     System.out.println("How many rounds?");
     int round = input.nextInt();
+    String[] transcript = new String[2*round+1];
+    transcript[0] = "What's on your mind?";
     input.nextLine();
     if (round == 1) {
       System.out.println("Ok! Let's talk for " + round + " round.");
@@ -18,8 +19,11 @@ class Conversation {
     };
     input.nextLine();
     System.out.println("What's on your mind?");
+
+
     for (var i = 1; i <= round; i++) {
       String text = input.nextLine();
+      transcript[i] = text;
       boolean mirrored = false; 
       String newtext = text;
       String [] responses = {"Oh, wow!", "Tell me more!", "Can you elaborate?", "I'm here to help!", "I'm here to listen", "What does that mean?", "Hmm...", "Mm-hmm", "That's interesting!"};
@@ -44,26 +48,24 @@ class Conversation {
         newtext = newtext.replace("your ", "my ");
         mirrored = true;
       } 
-      Arrays.toString(transcript);
-      ArrayList<String>arrayList = new ArrayList<String>(Arrays.asList(transcript));
-      arrayList.add(text);
-      transcript = arrayList.toArray(transcript);
-
       if (mirrored == true) {
         System.out.println(newtext + "?");
-        arrayList.add(newtext);
-        transcript = arrayList.toArray(transcript);
+        transcript[i+1] = newtext;
       } else {
         Random rand = new Random();
         int max = responses.length;
         int random = rand.nextInt(max);
-        System.out.println(responses[random]);
-        arrayList.add(responses[random]);
-        transcript = arrayList.toArray(transcript);
+        String newresponse = responses[random];
+        System.out.println(newresponse);
+        transcript[i+1] = newresponse;
       }
         }
-      System.out.println("Goodbye!");
-      System.out.println(transcript);
+      System.out.println("\nGoodbye!\n\n");
+      System.out.println("--------");
+      System.out.println("TRANSCRIPT: ");
+      System.out.println("--------");
+      System.out.println(Arrays.toString(transcript));
+      
     }
 }
 
