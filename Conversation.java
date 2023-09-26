@@ -13,6 +13,7 @@ class Conversation {
     System.out.println("Let's talk!");
     Scanner input = new Scanner(System.in);
     System.out.println("How many rounds?");
+    //take in user inputted number of rounds and use value for specifying transcript array length
     int round = input.nextInt();
     String[] transcript = new String[2*round+1];
     transcript[0] = "What's on your mind?";

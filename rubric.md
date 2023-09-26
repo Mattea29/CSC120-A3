@@ -12,7 +12,7 @@ Listed below are various aspects of the assignment.  When you turn in your work,
 
 ### Level 1 (4 pts)
 
-_____ 1 pt: `reflection.md` lists the classmates you consulted & TA hours attended
+**Yes** 1 pt: `reflection.md` lists the classmates you consulted & TA hours attended
 
 **Yes** 1 pt: Program queries user for number of conversation rounds
 
@@ -48,9 +48,9 @@ _____ 1 pt: Prints transcript when terminating
 
 ## General Items:
 
-_____ 4 pts: Programs compile without errors or warnings
+**Yes** 4 pts: Programs compile without errors or warnings
 
-_____ 2 pts: Executes fully & consistently without crashing (exception/freeze)
+**Yes** 2 pts: Executes fully & consistently without crashing (exception/freeze)
 
 _____ 2 pt: Complies with style guidelines (missing items 1 pt each):
 
