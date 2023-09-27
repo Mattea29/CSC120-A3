@@ -1,10 +1,16 @@
 import java.util.Scanner;
 import java.util.Random;
-import java.util.Arrays;
 
 /**
  * Chatbot that takes in user input, provides either a mirrored response if it detects personal pronouns
- * or returns a random canned response from a set array 
+ * or returns a random canned response from a set array.
+ * Everything is executed in the main function, which deals with user input, determining the appropriate responses,
+ * storing each call and response properly in a transcript, and printing said transcript when done.
+ * 
+ * <round> - number of rounds the conversation will go on for; also used for determining the length of the transcript array
+ * <transcriptIndex> - counter used to keep track of the current position in the array to avoid overwriting 
+ * <mirrored> - boolean value that is either true if the user input contains mirror words, or false if not and used to determine
+ * appropriate response
  */
 
 class Conversation {
@@ -33,36 +39,36 @@ class Conversation {
       transcript[transcriptIndex++] = text;
       boolean mirrored = false; 
       // newtext is copy of text to avoid issue of mirror word search/replace writing back over each changed sentence and returning nonsense
-      String newtext = text;
+      String newText = text;
       String [] responses = {"Oh, wow!", "Tell me more!", "Can you elaborate?", "I'm here to help!", "I'm here to listen", "What does that mean?", "Hmm...", "Mm-hmm", "That's interesting!"};
 
       // replacing mirror words
       if (text.contains("I ")) {
-        newtext = newtext.replace("I ", "you "); 
+        newText = newText.replace("I ", "you "); 
         mirrored = true;
       }
       if (text.contains(" am ")) {
-        newtext = newtext.replace("am ", "are ");
+        newText = newText.replace("am ", "are ");
         mirrored = true;
       }
       if (text.contains("you ")){
-        newtext = newtext.replace("you ", "i ");
+        newText = newText.replace("you ", "i ");
         mirrored = true;
       }
       if (text.contains("my ")) {
-        newtext = newtext.replace("my ", "your ");
+        newText = newText.replace("my ", "your ");
         mirrored = true;
       }
       if (text.contains("your")){
-        newtext = newtext.replace("your ", "my ");
+        newText = newText.replace("your ", "my ");
         mirrored = true;
       } 
 
       // detecting if a sentence has mirror words and returning the proper response based on boolean value
       // also storing responses properly in transcript array
       if (mirrored == true) {
-        System.out.println(newtext + "?");
-        transcript[transcriptIndex++] = newtext + "?";
+        System.out.println(newText + "?");
+        transcript[transcriptIndex++] = newText + "?";
       } else {
         Random rand = new Random();
         int max = responses.length;
@@ -72,7 +78,7 @@ class Conversation {
         transcript[transcriptIndex++] = newresponse;
       }
         }
-        
+
       System.out.println("\nGoodbye!\n\n");
       transcript[transcriptIndex++] = "Goodbye!";
       System.out.println("--------");
@@ -83,6 +89,8 @@ class Conversation {
         System.out.println(transcript[i]);
       }
       
+    // Closing Scanner to stop resource leak message
+    input.close();
     }
 }
 
