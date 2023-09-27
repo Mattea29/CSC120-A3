@@ -21,7 +21,7 @@ class Conversation {
     System.out.println("How many rounds?");
     //take in user inputted number of rounds and use value for specifying transcript array length
     int round = input.nextInt();
-    String[] transcript = new String[2*round+1];
+    String[] transcript = new String[2*round+2];
     transcript[0] = "What's on your mind?";
     input.nextLine();
     if (round == 1) {
