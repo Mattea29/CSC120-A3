@@ -23,17 +23,20 @@ class Conversation {
     } else {
       System.out.println("Ok! Let's talk for " + round + " rounds.");
     };
-    input.nextLine();
     System.out.println("What's on your mind?");
-
+    //keeping track of the position in the index of the transcript to avoid overwriting
+    int transcriptIndex = 1;
 
     for (var i = 1; i <= round; i++) {
       String text = input.nextLine();
-      transcript[i] = text;
+      // storing the user input in the transript array
+      transcript[transcriptIndex++] = text;
       boolean mirrored = false; 
+      // newtext is copy of text to avoid issue of mirror word search/replace writing back over each changed sentence and returning nonsense
       String newtext = text;
       String [] responses = {"Oh, wow!", "Tell me more!", "Can you elaborate?", "I'm here to help!", "I'm here to listen", "What does that mean?", "Hmm...", "Mm-hmm", "That's interesting!"};
 
+      // replacing mirror words
       if (text.contains("I ")) {
         newtext = newtext.replace("I ", "you "); 
         mirrored = true;
@@ -54,23 +57,31 @@ class Conversation {
         newtext = newtext.replace("your ", "my ");
         mirrored = true;
       } 
+
+      // detecting if a sentence has mirror words and returning the proper response based on boolean value
+      // also storing responses properly in transcript array
       if (mirrored == true) {
         System.out.println(newtext + "?");
-        transcript[i+1] = newtext;
+        transcript[transcriptIndex++] = newtext + "?";
       } else {
         Random rand = new Random();
         int max = responses.length;
         int random = rand.nextInt(max);
         String newresponse = responses[random];
         System.out.println(newresponse);
-        transcript[i+1] = newresponse;
+        transcript[transcriptIndex++] = newresponse;
       }
         }
+        
       System.out.println("\nGoodbye!\n\n");
+      transcript[transcriptIndex++] = "Goodbye!";
       System.out.println("--------");
       System.out.println("TRANSCRIPT: ");
       System.out.println("--------");
-      System.out.println(Arrays.toString(transcript));
+      // printing the transcript but ignoring the null values
+      for (int i = 0; i < transcriptIndex; i++) {
+        System.out.println(transcript[i]);
+      }
       
     }
 }

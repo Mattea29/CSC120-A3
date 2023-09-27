@@ -1,7 +1,7 @@
 Use this file to record your reflection on this assignment.
 
 - Which classmates did you consult with while working on this assignment?
-Jordan Liebich 
+Jordan Liebich, Annie
 - Which session(s) of TA / office hours did you attend?
 Sunday 9/24 at 7:19 PM
 - What are your initial impressions of Java? 
