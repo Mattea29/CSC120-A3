@@ -32,9 +32,9 @@ Listed below are various aspects of the assignment.  When you turn in your work,
 
 **Part** 1 pt: Makes all appropriate mirror replacements
 
-_____ 1 pt: Stores transcript of the conversation in an array
+**Yes** 1 pt: Stores transcript of the conversation in an array
 
-_____ 1 pt: Prints transcript when terminating
+**Yes** 1 pt: Prints transcript when terminating
 
 ## Kudos:
 
@@ -52,18 +52,18 @@ _____ 1 pt: Prints transcript when terminating
 
 **Yes** 2 pts: Executes fully & consistently without crashing (exception/freeze)
 
-_____ 2 pt: Complies with style guidelines (missing items 1 pt each):
+**Yes** 2 pt: Complies with style guidelines (missing items 1 pt each):
 
-      _____ Classes & class members all have Javadoc header comments
+      **Yes** Classes & class members all have Javadoc header comments
 
-      _____ Clear and consistent indentation of bracketed sections
+      **Yes** Clear and consistent indentation of bracketed sections
 
-      _____ Adheres to Java conventions on naming & capitalization
+      **Yes** Adheres to Java conventions on naming & capitalization
 
-      _____ Methods & variables all have clear and accurate names
+      **Yes** Methods & variables all have clear and accurate names
 
-      _____ Methods avoid confusing side effects
+      **Yes** Methods avoid confusing side effects
 
-_____ 1 pt: All required files included with submission (including completed checklist file)
+**Yes** 1 pt: All required files included with submission (including completed checklist file)
 
-_____ 1 pt: `reflection.md` contains your reflection on the assignment
+**Yes** 1 pt: `reflection.md` contains your reflection on the assignment
